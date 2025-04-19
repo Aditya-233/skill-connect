@@ -8,8 +8,6 @@
 
 A neighborhood marketplace where people can offer and request skills or services within a specific geographic area. Build stronger communities through skill sharing!
 
-![Skill Share Platform Preview](https://via.placeholder.com/800x400?text=Skill+Share+Platform+Preview)
-
 ## ✨ Features
 
 - **🏋️ Offer Skills:** List skills you're willing to share for a fee or for free
@@ -75,6 +73,4 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ## 📧 Contact
 
-Your Name - [@yourtwitter](https://twitter.com/yourtwitter) - email@example.com
-
-Project Link: [https://github.com/yourusername/skill-share](https://github.com/yourusername/skill-share) 
+Project Link: [https://github.com/Aditya-233/skill-share](https://github.com/Aditya-233/skill-share) 
