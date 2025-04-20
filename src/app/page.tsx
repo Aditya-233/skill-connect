@@ -8,6 +8,7 @@ import ImprovedHowItWorks from './components/ImprovedHowItWorks';
 import SimplifiedFooter from './components/SimplifiedFooter';
 import SkillQuiz from './components/SkillQuiz';
 import StickyQuizButton from './components/StickyQuizButton';
+import SearchBar from './components/SearchBar'; // Import SearchBar component
 
 export default function HomePage() {
   const [isQuizOpen, setIsQuizOpen] = useState(false);
@@ -42,6 +43,10 @@ export default function HomePage() {
               <Link href="/profile" className="btn-primary">
                 Sign In
               </Link>
+            </div>
+            {/* Search Bar */}
+            <div className="hidden md:flex items-center flex-grow max-w-xl mx-8">
+              <SearchBar />
             </div>
             <div className="md:hidden flex items-center">
               <button 
