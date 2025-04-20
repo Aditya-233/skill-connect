@@ -24,7 +24,7 @@ const StickyQuizButton: React.FC<StickyQuizButtonProps> = ({ onClick }) => {
     >
       <button
         onClick={onClick}
-        className="bg-primary-600 hover:bg-primary-700 text-white px-5 py-3 sm:px-6 sm:py-4 rounded-full shadow-lg flex items-center justify-center transition-all duration-300 border border-primary-500/50 focus:outline-none focus:ring-0"
+        className="bg-primary-500 hover:bg-primary-600 text-white px-4 py-2 rounded-md transition-colors duration-200"
         aria-label="Take the skill matching quiz"
       >
         <div className="flex items-center justify-center">

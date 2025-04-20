@@ -17,10 +17,11 @@ export default function HomePage() {
     <div className="min-h-screen bg-secondary-950 text-white">
       {/* Navigation */}
       <header className="fixed w-full top-0 z-50 bg-secondary-950/90 backdrop-blur-lg border-b border-gray-800 shadow-md transition-all duration-300">
-        <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <nav className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-6">
           <div className="flex justify-between h-16">
             <div className="flex items-center">
-              <div className="flex-shrink-0">
+              {/* Logo and Left Nav Links */}
+              <div className="flex-shrink-0 -ml-1">
                 <Link href="/" className="flex items-center">
                   <Image 
                     src="/logo.svg" 
@@ -32,21 +33,22 @@ export default function HomePage() {
                   <span className="ml-2 text-white font-semibold text-lg">SkillConnect</span>
                 </Link>
               </div>
+              <div className="hidden md:flex items-center ml-6 space-x-6">
+                <Link href="/skills" className="text-gray-300 hover:text-primary-400 transition-all duration-200">
+                  Browse Skills
+                </Link>
+                <Link href="/requests" className="text-gray-300 hover:text-primary-400 transition-all duration-200">
+                  Requests
+                </Link>
+              </div>
             </div>
-            <div className="hidden md:flex items-center space-x-8">
-              <Link href="/skills" className="text-gray-300 hover:text-primary-400 transition-all duration-200">
-                Browse Skills
-              </Link>
-              <Link href="/requests" className="text-gray-300 hover:text-primary-400 transition-all duration-200">
-                Requests
-              </Link>
-              <Link href="/profile" className="btn-primary">
+            {/* Right side: Search Bar and Sign In */}
+            <div className="hidden md:flex items-center space-x-4 -mr-1">
+              {/* Removed extra div around SearchBar */}
+              <SearchBar />
+              <Link href="/profile" className="btn-primary"> {/* Sign In Link */}
                 Sign In
               </Link>
-            </div>
-            {/* Search Bar */}
-            <div className="hidden md:flex items-center flex-grow max-w-xl mx-8">
-              <SearchBar />
             </div>
             <div className="md:hidden flex items-center">
               <button 
@@ -287,4 +289,4 @@ const successStories = [
     category: "Photography",
     link: "/success-stories/david-rodriguez"
   }
-]; 
+];

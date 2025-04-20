@@ -29,23 +29,23 @@ body {
   }
   
   h1 {
-    @apply text-4xl sm:text-5xl md:text-6xl;
+    @apply text-5xl sm:text-6xl md:text-7xl;
   }
   
   h2 {
-    @apply text-3xl sm:text-4xl md:text-5xl;
+    @apply text-4xl sm:text-5xl md:text-6xl;
   }
   
   h3 {
-    @apply text-xl sm:text-2xl md:text-3xl;
+    @apply text-2xl sm:text-3xl md:text-4xl;
   }
   
   h4 {
-    @apply text-lg sm:text-xl;
+    @apply text-xl sm:text-2xl;
   }
   
   p {
-    @apply text-lg text-gray-300 mb-6;
+    @apply text-xl text-gray-300 mb-6;
     max-width: 65ch;
   }
   
@@ -134,117 +134,145 @@ body {
   .video-teaser {
     @apply relative overflow-hidden rounded-lg cursor-pointer transition-transform duration-300 hover:scale-105;
   }
-} 
-
-/* Responsive mobile fixes */
-@media (max-width: 640px) {
-  h1 {
-    @apply text-3xl !important;
-    margin-bottom: 0.75em;
+  
+  .search-bar {
+    @apply relative ml-auto;
   }
   
-  h2 {
-    @apply text-2xl !important;
-    margin-bottom: 0.75em;
+  .search-bar input {
+    @apply w-full bg-secondary-800 border border-secondary-700 rounded-l-md px-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-primary-500;
   }
   
-  h3 {
-    @apply text-xl !important;
-    margin-bottom: 0.5em;
+  .search-bar button {
+    @apply bg-primary-500 hover:bg-primary-600 text-white px-4 py-2 rounded-r-md transition-colors duration-200;
   }
   
-  .section {
-    @apply py-8 !important;
-    margin-bottom: 2rem !important;
+  .search-bar ul {
+    @apply max-h-60 overflow-y-auto;
   }
   
-  .card {
-    @apply p-5 !important;
-    margin-bottom: 1.5rem !important;
+  .search-bar li {
+    @apply px-4 py-2 text-white hover:bg-secondary-700 cursor-pointer transition-colors;
   }
   
-  .hidden-xs {
-    display: none !important;
+  header nav > div {
+    @apply flex items-center justify-between w-full;
   }
   
-  .grid {
-    @apply gap-5 !important;
-  }
-  
-  .btn-primary, .btn-secondary, .btn-outline {
-    @apply py-2.5 px-4 text-sm !important;
-    margin-bottom: 1rem;
-  }
-  
-  .testimonial-card {
-    @apply mb-8;
-  }
-  
-  /* Fix quiz button overlap */
-  .fixed.bottom-6.right-6 {
-    @apply bottom-4 right-4 !important;
-  }
-  
-  /* Improve text readability on small screens */
-  p {
-    @apply text-base !important;
-    line-height: 1.7 !important;
-    margin-bottom: 1.25rem !important;
-  }
-  
-  /* Better dropdown menu spacing */
-  .footer-dropdown {
-    @apply mb-4 !important;
-  }
-  
-  .footer-dropdown-item {
-    @apply py-3 !important;
-  }
-  
-  /* Increased spacing between sections */
-  section + section {
-    @apply mt-12 !important;
-  }
-} 
-
-@layer utilities {
-  .animate-pulse-slow {
-    animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-  }
-  
-  .animate-bounce-slow {
-    animation: bounce 3s infinite;
-  }
-  
-  @keyframes bounce {
-    0%, 100% {
-      transform: translateY(-5%);
-      animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+  /* Responsive mobile fixes */
+  @media (max-width: 640px) {
+    h1 {
+      @apply text-3xl !important;
+      margin-bottom: 0.75em;
     }
-    50% {
-      transform: translateY(0);
-      animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+    
+    h2 {
+      @apply text-2xl !important;
+      margin-bottom: 0.75em;
     }
-  }
-} 
-
-.animation-delay-2000 {
-  animation-delay: 2000ms;
-} 
-
-.quiz-button-float {
-  box-shadow: 0 4px 15px rgba(249, 115, 22, 0.3);
-  z-index: 999 !important;
-}
-
-.quiz-button-float:hover {
-  box-shadow: 0 6px 20px rgba(249, 115, 22, 0.4);
-}
-
-@media (max-width: 640px) {
+    
+    h3 {
+      @apply text-xl !important;
+      margin-bottom: 0.5em;
+    }
+    
+    .section {
+      @apply py-8 !important;
+      margin-bottom: 2rem !important;
+    }
+    
+    .card {
+      @apply p-5 !important;
+      margin-bottom: 1.5rem !important;
+    }
+    
+    .hidden-xs {
+      display: none !important;
+    }
+    
+    .grid {
+      @apply gap-5 !important;
+    }
+    
+    .btn-primary, .btn-secondary, .btn-outline {
+      @apply py-2.5 px-4 text-sm !important;
+      margin-bottom: 1rem;
+    }
+    
+    .testimonial-card {
+      @apply mb-8;
+    }
+    
+    /* Fix quiz button overlap */
+    .fixed.bottom-6.right-6 {
+      @apply bottom-4 right-4 !important;
+    }
+    
+    /* Improve text readability on small screens */
+    p {
+      @apply text-lg !important;
+      line-height: 1.7 !important;
+      margin-bottom: 1.25rem !important;
+    }
+    
+    /* Better dropdown menu spacing */
+    .footer-dropdown {
+      @apply mb-4 !important;
+    }
+    
+    .footer-dropdown-item {
+      @apply py-3 !important;
+    }
+    
+    /* Increased spacing between sections */
+    section + section {
+      @apply mt-12 !important;
+    }
+  } 
+  
+  @layer utilities {
+    .animate-pulse-slow {
+      animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    }
+    
+    .animate-bounce-slow {
+      animation: bounce 3s infinite;
+    }
+    
+    .animate-fadeIn {
+      animation: fadeIn 1s ease-in-out;
+    }
+    
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateY(-5%);
+        animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+      }
+      50% {
+        transform: translateY(0);
+        animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+      }
+    }
+  } 
+  
+  .animation-delay-2000 {
+    animation-delay: 2000ms;
+  } 
+  
   .quiz-button-float {
-    bottom: 1rem !important;
-    right: 1rem !important;
-    padding: 0.75rem 1rem !important;
+    box-shadow: 0 4px 15px rgba(249, 115, 22, 0.3);
+    z-index: 999 !important;
   }
-} 
+
+  .quiz-button-float:hover {
+    box-shadow: 0 6px 20px rgba(249, 115, 22, 0.4);
+  }
+
+  @media (max-width: 640px) {
+    .quiz-button-float {
+      bottom: 1rem !important;
+      right: 1rem !important;
+      padding: 0.75rem 1rem !important;
+    }
+  } 
+}
