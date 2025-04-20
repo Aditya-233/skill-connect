@@ -225,26 +225,6 @@ const SimplifiedFooter: React.FC = () => {
         </div>
       </footer>
 
-      {/* Floating Quiz Button - improved for mobile */}
-      <div 
-        className={`fixed bottom-6 right-6 z-50 transition-all duration-300 ${
-          showFloatingButton ? 'translate-y-0 opacity-100' : 'translate-y-16 opacity-0'
-        }`}
-      >
-        <button
-          onClick={openQuiz}
-          className="bg-primary-500 hover:bg-primary-600 text-white p-3 md:px-4 md:py-3 rounded-full shadow-lg flex items-center justify-center transition-transform hover:scale-110 active:scale-95"
-          aria-label="Find your skills match"
-        >
-          <div className="flex items-center">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5 md:w-6 md:h-6">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9 5.25h.008v.008H12v-.008z" />
-            </svg>
-            <span className="ml-2 font-medium hidden md:inline">Take Skill Quiz</span>
-          </div>
-        </button>
-      </div>
-
       {/* Skill Quiz Modal */}
       {isQuizOpen && <SkillQuiz onClose={() => setIsQuizOpen(false)} />}
     </>

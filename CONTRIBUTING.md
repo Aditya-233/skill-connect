@@ -1,6 +1,6 @@
-# Contributing to Skill Connect
+# Contributing to SkillConnect
 
-First off, thank you for considering contributing to Skill Connect! It's people like you that make this platform such a great tool for community building.
+First off, thank you for considering contributing to SkillConnect! It's people like you that make this platform such a great tool for community building.
 
 ## Code of Conduct
 

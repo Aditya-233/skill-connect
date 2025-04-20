@@ -1,12 +1,25 @@
-# 🔄 Skill Share - Hyper-Local Skill Sharing Platform
+# 🔗 SkillConnect - Hyper-Local Skill Matching Platform
 
 [![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=next.js&logoColor=white)](https://nextjs.org/)
 [![React](https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://reactjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
 [![License](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Issues](https://img.shields.io/github/issues/Aditya-233/skill-connect.svg)](https://github.com/Aditya-233/skill-connect/issues)
+[![Forks](https://img.shields.io/github/forks/Aditya-233/skill-connect.svg)](https://github.com/Aditya-233/skill-connect/network/members)
+[![Stargazers](https://img.shields.io/github/stars/Aditya-233/skill-connect.svg)](https://github.com/Aditya-233/skill-connect/stargazers)
 
 A neighborhood marketplace where people can offer and request skills or services within a specific geographic area. Build stronger communities through skill sharing!
+
+## 📋 Table of Contents
+
+- [Features](#-features)
+- [Getting Started](#-getting-started)
+- [Tech Stack](#-tech-stack)
+- [Project Structure](#-project-structure)
+- [Contributing](#-contributing)
+- [License](#-license)
+- [Contact](#-contact)
 
 ## ✨ Features
 
@@ -21,7 +34,7 @@ A neighborhood marketplace where people can offer and request skills or services
 
 ```bash
 # Clone this repository
-git clone https://github.com/yourusername/skill-share.git
+git clone https://github.com/Aditya-233/skill-connect.git
 
 # Install dependencies
 npm install
@@ -73,4 +86,4 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ## 📧 Contact
 
-Project Link: [https://github.com/Aditya-233/skill-share](https://github.com/Aditya-233/skill-share) 
+Project Link: [https://github.com/Aditya-233/skill-connect](https://github.com/Aditya-233/skill-connect) 
