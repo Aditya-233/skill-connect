@@ -7,6 +7,7 @@ import SubtleHeroSection from './components/SubtleHeroSection';
 import ImprovedHowItWorks from './components/ImprovedHowItWorks';
 import SimplifiedFooter from './components/SimplifiedFooter';
 import SkillQuiz from './components/SkillQuiz';
+import StickyQuizButton from './components/StickyQuizButton';
 
 export default function HomePage() {
   const [isQuizOpen, setIsQuizOpen] = useState(false);
@@ -65,7 +66,7 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-white">Popular Skill Categories</h2>
-            <p className="mt-4 text-lg text-gray-400">Discover skills across a variety of categories</p>
+            <p className="mt-4 text-lg text-gray-400 max-w-2xl mx-auto">Discover skills across a variety of categories</p>
           </div>
           
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
@@ -113,7 +114,7 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-white">What Our Community Says</h2>
-            <p className="mt-4 text-lg text-gray-400">Hear from people who have shared and learned skills on our platform</p>
+            <p className="mt-4 text-lg text-gray-400 max-w-2xl mx-auto">Hear from people who have shared and learned skills on our platform</p>
           </div>
           
           <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
@@ -147,7 +148,7 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-white">Success Stories</h2>
-            <p className="mt-4 text-lg text-gray-400">Real people achieving real results through skill exchange</p>
+            <p className="mt-4 text-lg text-gray-400 max-w-2xl mx-auto">Real people achieving real results through skill exchange</p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -209,6 +210,9 @@ export default function HomePage() {
 
       {/* Footer - using simplified footer */}
       <SimplifiedFooter />
+      
+      {/* Sticky Quiz Button */}
+      <StickyQuizButton onClick={() => setIsQuizOpen(true)} />
       
       {/* Skill Quiz Modal */}
       {isQuizOpen && <SkillQuiz onClose={() => setIsQuizOpen(false)} />}
@@ -278,4 +282,4 @@ const successStories = [
     category: "Photography",
     link: "/success-stories/david-rodriguez"
   }
-];
+]; 

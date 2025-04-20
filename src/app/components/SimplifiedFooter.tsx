@@ -124,38 +124,51 @@ const SimplifiedFooter: React.FC = () => {
           {/* Divider */}
           <div className="h-px bg-secondary-800 my-6"></div>
           
-          {/* Mobile accordion view - simplified with fewer sections */}
-          <div className="md:hidden space-y-2">
+          {/* Mobile accordion view - improved dropdown orientation */}
+          <div className="md:hidden space-y-4">
             {footerSections.map((section) => (
-              <div key={section.title} className="border-b border-secondary-800 pb-2">
+              <div key={section.title} className="border border-secondary-800 rounded-lg overflow-hidden shadow-sm">
                 <button 
                   onClick={() => toggleSection(section.title)}
-                  className="flex items-center justify-between w-full py-3 text-left"
+                  className="flex items-center justify-between w-full py-4 px-5 text-left bg-secondary-800/40 hover:bg-secondary-800/60 transition-colors"
+                  aria-expanded={openSection === section.title}
+                  aria-controls={`section-${section.title.toLowerCase().replace(/\s+/g, '-')}`}
                 >
-                  <h3 className="text-white font-semibold">{section.title}</h3>
+                  <h3 className="text-white font-semibold text-lg">{section.title}</h3>
                   <svg 
                     xmlns="http://www.w3.org/2000/svg" 
                     fill="none" 
                     viewBox="0 0 24 24" 
-                    strokeWidth={1.5} 
+                    strokeWidth={2} 
                     stroke="currentColor" 
-                    className={`w-5 h-5 text-gray-400 transition-transform ${openSection === section.title ? 'transform rotate-180' : ''}`}
+                    className={`w-5 h-5 text-primary-400 transition-transform duration-300 ${openSection === section.title ? 'transform rotate-180' : ''}`}
                   >
                     <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
                   </svg>
                 </button>
                 
-                {openSection === section.title && (
-                  <ul className="py-2 space-y-2 pl-2 grid grid-cols-2 gap-2">
+                <div 
+                  id={`section-${section.title.toLowerCase().replace(/\s+/g, '-')}`}
+                  className={`transition-all duration-300 ease-in-out ${
+                    openSection === section.title ? 'max-h-[500px] py-3' : 'max-h-0 py-0'
+                  } overflow-hidden bg-secondary-800/20`}
+                >
+                  <ul className="px-3 space-y-1">
                     {section.links.map((link) => (
                       <li key={link.label}>
-                        <Link href={link.href} className="text-gray-400 hover:text-primary-400 transition-all duration-200">
+                        <Link 
+                          href={link.href} 
+                          className="text-gray-300 hover:text-white transition-all duration-200 text-base flex items-center p-3 rounded-lg hover:bg-secondary-800/40 active:bg-secondary-800/60"
+                        >
+                          <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-3 text-primary-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                          </svg>
                           {link.label}
                         </Link>
                       </li>
                     ))}
                   </ul>
-                )}
+                </div>
               </div>
             ))}
           </div>
@@ -212,7 +225,7 @@ const SimplifiedFooter: React.FC = () => {
         </div>
       </footer>
 
-      {/* Floating Quiz Button */}
+      {/* Floating Quiz Button - improved for mobile */}
       <div 
         className={`fixed bottom-6 right-6 z-50 transition-all duration-300 ${
           showFloatingButton ? 'translate-y-0 opacity-100' : 'translate-y-16 opacity-0'
@@ -220,7 +233,7 @@ const SimplifiedFooter: React.FC = () => {
       >
         <button
           onClick={openQuiz}
-          className="bg-primary-500 hover:bg-primary-600 text-white p-3 md:px-4 md:py-3 rounded-full shadow-lg flex items-center justify-center transition-transform hover:scale-110"
+          className="bg-primary-500 hover:bg-primary-600 text-white p-3 md:px-4 md:py-3 rounded-full shadow-lg flex items-center justify-center transition-transform hover:scale-110 active:scale-95"
           aria-label="Find your skills match"
         >
           <div className="flex items-center">

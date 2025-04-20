@@ -16,6 +16,42 @@ body {
     rgb(var(--background-end-rgb))
   );
   min-height: 100vh;
+  line-height: 1.6;
+  letter-spacing: 0.015em;
+}
+
+/* Add base typography adjustments */
+@layer base {
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold tracking-tight text-white;
+    margin-bottom: 0.5em;
+    line-height: 1.2;
+  }
+  
+  h1 {
+    @apply text-3xl sm:text-4xl md:text-5xl;
+  }
+  
+  h2 {
+    @apply text-2xl sm:text-3xl md:text-4xl;
+  }
+  
+  h3 {
+    @apply text-xl sm:text-2xl md:text-3xl;
+  }
+  
+  h4 {
+    @apply text-lg sm:text-xl;
+  }
+  
+  p {
+    @apply text-base text-gray-300 mb-4;
+    max-width: 70ch;
+  }
+  
+  section {
+    @apply mb-10 md:mb-16;
+  }
 }
 
 /* Loading animation keyframes */
@@ -104,18 +140,27 @@ body {
 @media (max-width: 640px) {
   h1 {
     @apply text-3xl !important;
+    margin-bottom: 0.75em;
   }
   
   h2 {
     @apply text-2xl !important;
+    margin-bottom: 0.75em;
+  }
+  
+  h3 {
+    @apply text-xl !important;
+    margin-bottom: 0.5em;
   }
   
   .section {
     @apply py-8 !important;
+    margin-bottom: 2rem !important;
   }
   
   .card {
-    @apply p-4 !important;
+    @apply p-5 !important;
+    margin-bottom: 1.5rem !important;
   }
   
   .hidden-xs {
@@ -123,15 +168,16 @@ body {
   }
   
   .grid {
-    @apply gap-4 !important;
+    @apply gap-5 !important;
   }
   
   .btn-primary, .btn-secondary, .btn-outline {
-    @apply py-2 px-3 text-sm !important;
+    @apply py-2.5 px-4 text-sm !important;
+    margin-bottom: 1rem;
   }
   
   .testimonial-card {
-    @apply mb-6;
+    @apply mb-8;
   }
   
   /* Fix quiz button overlap */
@@ -141,7 +187,23 @@ body {
   
   /* Improve text readability on small screens */
   p {
-    @apply text-sm !important;
+    @apply text-base !important;
+    line-height: 1.7 !important;
+    margin-bottom: 1.25rem !important;
+  }
+  
+  /* Better dropdown menu spacing */
+  .footer-dropdown {
+    @apply mb-4 !important;
+  }
+  
+  .footer-dropdown-item {
+    @apply py-3 !important;
+  }
+  
+  /* Increased spacing between sections */
+  section + section {
+    @apply mt-12 !important;
   }
 } 
 
@@ -163,5 +225,26 @@ body {
       transform: translateY(0);
       animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
     }
+  }
+} 
+
+.animation-delay-2000 {
+  animation-delay: 2000ms;
+} 
+
+.quiz-button-float {
+  box-shadow: 0 4px 15px rgba(249, 115, 22, 0.3);
+  z-index: 999 !important;
+}
+
+.quiz-button-float:hover {
+  box-shadow: 0 6px 20px rgba(249, 115, 22, 0.4);
+}
+
+@media (max-width: 640px) {
+  .quiz-button-float {
+    bottom: 1rem !important;
+    right: 1rem !important;
+    padding: 0.75rem 1rem !important;
   }
 } 
