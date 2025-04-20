@@ -11,12 +11,44 @@ const FeatureIntegration: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isQuizOpen, setIsQuizOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [showBanner, setShowBanner] = useState(true);
   
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
   const toggleQuiz = () => setIsQuizOpen(!isQuizOpen);
+  const closeBanner = () => setShowBanner(false);
   
   return (
     <MobileOptimizations>
+      {/* Quiz Banner */}
+      {showBanner && (
+        <div className="sticky top-0 z-50 bg-primary-600 text-white px-4 py-3 shadow-md animate-fadeIn">
+          <div className="max-w-7xl mx-auto flex items-center justify-between">
+            <div className="flex items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5 mr-2">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9 5.25h.008v.008H12v-.008z" />
+              </svg>
+              <p className="text-sm md:text-base font-medium">Discover your perfect skill path! Take our quick quiz</p>
+            </div>
+            <div className="flex items-center">
+              <button 
+                onClick={toggleQuiz}
+                className="text-xs md:text-sm bg-white text-primary-600 px-3 py-1 rounded-full font-medium mr-2 hover:bg-opacity-90 transition-all"
+              >
+                Start Quiz
+              </button>
+              <button 
+                onClick={closeBanner}
+                className="text-white hover:text-gray-200"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+      
       {/* Mobile Menu Component */}
       <MobileMenu isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} />
       
@@ -36,17 +68,20 @@ const FeatureIntegration: React.FC = () => {
         </button>
       </div>
       
-      {/* Quiz trigger button for desktop */}
-      <div className="fixed right-0 top-1/2 transform -translate-y-1/2 hidden md:block z-40">
+      {/* Quiz trigger button for desktop - make sticky and more prominent */}
+      <div className="fixed right-0 top-1/3 transform -translate-y-1/2 hidden md:block z-40">
         <button
           onClick={toggleQuiz}
-          className="bg-primary-500 hover:bg-primary-600 text-white px-3 py-4 rounded-l-lg shadow-lg flex items-center"
+          className="bg-primary-500 hover:bg-primary-600 text-white px-4 py-3 rounded-l-lg shadow-lg flex items-center group transition-all duration-300 hover:px-5"
           aria-label="Take skill quiz"
         >
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5 mr-2">
             <path strokeLinecap="round" strokeLinejoin="round" d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9 5.25h.008v.008H12v-.008z" />
           </svg>
           <span className="text-sm font-medium whitespace-nowrap">Find Your Path</span>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-0 h-5 opacity-0 group-hover:w-4 group-hover:opacity-100 group-hover:ml-2 transition-all duration-300">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+          </svg>
         </button>
       </div>
       
