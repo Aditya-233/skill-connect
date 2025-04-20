@@ -18,6 +18,21 @@ body {
   min-height: 100vh;
 }
 
+/* Loading animation keyframes */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
 @layer components {
   .btn-primary {
     @apply bg-primary-500 hover:bg-primary-600 text-white font-semibold py-2 px-4 rounded-md transition-all duration-200 shadow-md hover:shadow-lg transform hover:-translate-y-0.5;
@@ -49,5 +64,73 @@ body {
   
   .grid-card-container {
     @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6;
+  }
+  
+  /* Mobile-friendly components */
+  .mobile-menu {
+    @apply fixed inset-0 bg-secondary-900/95 z-50 flex flex-col items-center justify-center transition-all duration-300 backdrop-blur-md;
+  }
+  
+  .mobile-nav-item {
+    @apply block w-full text-center py-4 text-xl font-medium text-white hover:text-primary-400 transition-colors;
+  }
+  
+  /* Loading spinner */
+  .loading-spinner {
+    @apply w-8 h-8 border-4 border-primary-200 border-t-primary-500 rounded-full animate-spin;
+  }
+  
+  /* Blog card */
+  .blog-card {
+    @apply bg-secondary-800 rounded-lg overflow-hidden border border-secondary-700 hover:border-primary-500/50 transition-all duration-300;
+  }
+  
+  /* Quiz component */
+  .quiz-option {
+    @apply flex items-center p-4 bg-secondary-800 border border-secondary-700 rounded-lg cursor-pointer transition-all duration-200 hover:border-primary-400;
+  }
+  
+  .quiz-option-selected {
+    @apply border-primary-500 bg-primary-900/30;
+  }
+  
+  /* Video teaser */
+  .video-teaser {
+    @apply relative overflow-hidden rounded-lg cursor-pointer transition-transform duration-300 hover:scale-105;
+  }
+} 
+
+/* Responsive mobile fixes */
+@media (max-width: 640px) {
+  h1 {
+    @apply text-3xl !important;
+  }
+  
+  h2 {
+    @apply text-2xl !important;
+  }
+  
+  .section {
+    @apply py-8 !important;
+  }
+  
+  .card {
+    @apply p-4 !important;
+  }
+  
+  .hidden-xs {
+    display: none !important;
+  }
+  
+  .grid {
+    @apply gap-4 !important;
+  }
+  
+  .btn-primary, .btn-secondary, .btn-outline {
+    @apply py-2 px-3 text-sm !important;
+  }
+  
+  .testimonial-card {
+    @apply mb-6;
   }
 } 
