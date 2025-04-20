@@ -6,7 +6,7 @@ export default function HomePage() {
   return (
     <div className="min-h-screen bg-secondary-950 text-white">
       {/* Navigation */}
-      <header className="fixed w-full top-0 z-50 bg-secondary-950/80 backdrop-blur-lg border-b border-gray-800">
+      <header className="fixed w-full top-0 z-50 bg-secondary-950/90 backdrop-blur-lg border-b border-gray-800 shadow-md transition-all duration-300">
         <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-16">
             <div className="flex items-center">
@@ -23,7 +23,7 @@ export default function HomePage() {
                 </Link>
               </div>
             </div>
-            <div className="flex items-center space-x-8">
+            <div className="hidden md:flex items-center space-x-8">
               <Link href="/skills" className="text-gray-300 hover:text-primary-400 transition-all duration-200">
                 Browse Skills
               </Link>
@@ -34,6 +34,17 @@ export default function HomePage() {
                 Sign In
               </Link>
             </div>
+            <div className="md:hidden flex items-center">
+              <button 
+                className="text-gray-300 hover:text-white focus:outline-none p-2 rounded-md border border-gray-700 bg-secondary-900 shadow-lg"
+                aria-label="Open menu"
+                tabIndex={0}
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                </svg>
+              </button>
+            </div>
           </div>
         </nav>
       </header>
@@ -41,11 +52,11 @@ export default function HomePage() {
       {/* Hero Section */}
       <section className="relative pt-24 pb-12 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-secondary-900 to-secondary-950 z-0"></div>
-        <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] bg-repeat opacity-20 z-0"></div>
+        <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] bg-repeat opacity-30 z-0"></div>
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-20 sm:pt-24 sm:pb-24">
           
           {/* Texture background on right side */}
-          <div className="absolute top-0 right-0 w-1/2 h-full opacity-20 z-0 pointer-events-none">
+          <div className="absolute top-0 right-0 w-1/2 h-full opacity-30 z-0 pointer-events-none">
             <Image 
               src="/texture-bg.svg" 
               alt="Background texture" 
@@ -62,8 +73,7 @@ export default function HomePage() {
               </div>
               <h1 className="text-4xl md:text-5xl font-bold leading-tight">
                 Share Your Skills. 
-                <span className="text-primary-500">Connect</span> With 
-                Others.
+                <span className="text-primary-500">Connect</span> With Others.
               </h1>
               <p className="mt-4 text-xl text-gray-300 mb-8">
                 Unlike LinkedIn or Upwork, SkillConnect is a <span className="text-primary-400 font-semibold">community-first platform</span> focused on meaningful skill exchanges rather than just hiring or networking.
@@ -103,11 +113,8 @@ export default function HomePage() {
                 </div>
               </div>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Link href="/skills" className="btn-primary">
-                  Find Skills
-                </Link>
-                <Link href="/requests" className="btn-outline">
-                  Browse Requests
+                <Link href="/skills" className="btn-primary text-center w-full sm:w-auto">
+                  Get Started
                 </Link>
               </div>
             </div>
@@ -117,7 +124,7 @@ export default function HomePage() {
                 <div className="relative z-10 text-center">
                   <Image 
                     src="/mockup-dashboard.svg" 
-                    alt="SkillConnect Dashboard Preview" 
+                    alt="SkillConnect Dashboard showing skill categories, available local skills, and user profile interface" 
                     width={500} 
                     height={350}
                     className="rounded-lg shadow-2xl"
@@ -146,6 +153,8 @@ export default function HomePage() {
                 key={category.name} 
                 href={`/skills?category=${category.name}`}
                 className="group relative rounded-lg overflow-hidden bg-secondary-800 border border-secondary-700 hover:border-primary-500 shadow-custom transition-all duration-200 hover:shadow-custom-hover h-32"
+                tabIndex={0}
+                aria-label={`Browse ${category.name} skills`}
               >
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-black/30 group-hover:from-primary-900/80 transition-all duration-200"></div>
                 <div className="absolute inset-0 flex items-center justify-center text-center p-4">
@@ -184,9 +193,9 @@ export default function HomePage() {
           </div>
           
           <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
-            <div className="card">
-              <div className="flex items-center justify-center h-14 w-14 rounded-full bg-primary-900 text-primary-400 mb-6 mx-auto">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-7 h-7">
+            <div className="card hover:transform hover:scale-105 transition-all duration-300">
+              <div className="flex items-center justify-center h-14 w-14 rounded-full bg-primary-900 text-primary-400 mb-6 mx-auto animate-pulse">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-7 h-7 hover:scale-110 transition-transform duration-300">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
                 </svg>
               </div>
@@ -194,9 +203,9 @@ export default function HomePage() {
               <p className="text-gray-400 text-center">Sign up and create a profile showcasing your skills, experience, and availability.</p>
             </div>
             
-            <div className="card">
-              <div className="flex items-center justify-center h-14 w-14 rounded-full bg-primary-900 text-primary-400 mb-6 mx-auto">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-7 h-7">
+            <div className="card hover:transform hover:scale-105 transition-all duration-300">
+              <div className="flex items-center justify-center h-14 w-14 rounded-full bg-primary-900 text-primary-400 mb-6 mx-auto animate-pulse">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-7 h-7 hover:scale-110 transition-transform duration-300">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
                 </svg>
               </div>
@@ -204,9 +213,9 @@ export default function HomePage() {
               <p className="text-gray-400 text-center">Browse skills or create a listing to share your expertise with the community.</p>
             </div>
             
-            <div className="card">
-              <div className="flex items-center justify-center h-14 w-14 rounded-full bg-primary-900 text-primary-400 mb-6 mx-auto">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-7 h-7">
+            <div className="card hover:transform hover:scale-105 transition-all duration-300">
+              <div className="flex items-center justify-center h-14 w-14 rounded-full bg-primary-900 text-primary-400 mb-6 mx-auto animate-pulse">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-7 h-7 hover:scale-110 transition-transform duration-300">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M7.5 8.25h9m-9 3H12m-9.75 1.51c0 1.6 1.123 2.994 2.707 3.227 1.129.166 2.27.293 3.423.379.35.026.67.21.865.501L12 21l2.755-4.133a1.14 1.14 0 01.865-.501 48.172 48.172 0 003.423-.379c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z" />
                 </svg>
               </div>
@@ -312,6 +321,18 @@ export default function HomePage() {
             >
               View All Success Stories
             </Link>
+            <div className="mt-6">
+              <Link 
+                href="/case-studies/videos" 
+                className="inline-flex items-center text-primary-400 hover:text-primary-300 font-medium"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5 mr-2">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M15.91 11.672a.375.375 0 010 .656l-5.603 3.113a.375.375 0 01-.557-.328V8.887c0-.286.307-.466.557-.327l5.603 3.112z" />
+                </svg>
+                Watch Video Case Studies
+              </Link>
+            </div>
           </div>
         </div>
       </section>
