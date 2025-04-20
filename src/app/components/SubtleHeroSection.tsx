@@ -6,59 +6,59 @@ import Image from 'next/image';
 
 const SubtleHeroSection: React.FC = () => {
   return (
-    <section className="relative pt-24 pb-12 overflow-hidden">
+    <section className="relative pt-16 md:pt-24 pb-8 md:pb-12 overflow-hidden">
       {/* Simplified background with subtle gradient instead of texture */}
       <div className="absolute inset-0 bg-gradient-to-b from-secondary-900 to-secondary-950 z-0"></div>
       <div className="absolute inset-0 bg-gradient-to-tr from-secondary-900/40 via-primary-900/10 to-secondary-950/30 z-0"></div>
       
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-20 sm:pt-24 sm:pb-24">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 md:pt-20 pb-12 md:pb-20">
         {/* Subtle gradient on right side instead of texture */}
         <div className="absolute top-0 right-0 w-1/2 h-full opacity-10 z-0 pointer-events-none bg-gradient-to-bl from-primary-700/10 via-transparent to-transparent"></div>
         
-        <div className="container mx-auto grid md:grid-cols-2 gap-8 py-16 items-center">
+        <div className="container mx-auto grid md:grid-cols-2 gap-6 md:gap-8 py-8 md:py-16 items-center">
           <div>
-            <div className="inline-block px-4 py-1 rounded-full bg-primary-900/30 border border-primary-500 text-primary-400 text-sm font-medium mb-4">
+            <div className="inline-block px-3 md:px-4 py-1 rounded-full bg-primary-900/30 border border-primary-500 text-primary-400 text-xs md:text-sm font-medium mb-3 md:mb-4">
               Skill-based Community Platform
             </div>
-            <h1 className="text-4xl md:text-5xl font-bold leading-tight">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight">
               Share Your Skills. 
               <span className="text-primary-500">Connect</span> With Others.
             </h1>
-            <p className="mt-4 text-xl text-gray-300 mb-8">
+            <p className="mt-3 md:mt-4 text-base md:text-xl text-gray-300 mb-6 md:mb-8">
               Unlike LinkedIn or Upwork, SkillConnect is a <span className="text-primary-400 font-semibold">community-first platform</span> focused on meaningful skill exchanges rather than just hiring or networking.
             </p>
-            <div className="grid grid-cols-2 gap-4 mb-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4 mb-6 md:mb-8">
               <div className="flex items-center">
-                <div className="rounded-full bg-primary-900/20 p-2 mr-3">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-primary-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <div className="rounded-full bg-primary-900/20 p-1.5 md:p-2 mr-2 md:mr-3">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 md:h-5 md:w-5 text-primary-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
                 </div>
-                <span className="text-gray-300">Skill bartering</span>
+                <span className="text-sm md:text-base text-gray-300">Skill bartering</span>
               </div>
               <div className="flex items-center">
-                <div className="rounded-full bg-primary-900/20 p-2 mr-3">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-primary-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <div className="rounded-full bg-primary-900/20 p-1.5 md:p-2 mr-2 md:mr-3">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 md:h-5 md:w-5 text-primary-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
                 </div>
-                <span className="text-gray-300">No platform fees</span>
+                <span className="text-sm md:text-base text-gray-300">No platform fees</span>
               </div>
               <div className="flex items-center">
-                <div className="rounded-full bg-primary-900/20 p-2 mr-3">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-primary-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <div className="rounded-full bg-primary-900/20 p-1.5 md:p-2 mr-2 md:mr-3">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 md:h-5 md:w-5 text-primary-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
                 </div>
-                <span className="text-gray-300">Local community focus</span>
+                <span className="text-sm md:text-base text-gray-300">Local community focus</span>
               </div>
               <div className="flex items-center">
-                <div className="rounded-full bg-primary-900/20 p-2 mr-3">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-primary-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <div className="rounded-full bg-primary-900/20 p-1.5 md:p-2 mr-2 md:mr-3">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 md:h-5 md:w-5 text-primary-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
                 </div>
-                <span className="text-gray-300">Knowledge sharing</span>
+                <span className="text-sm md:text-base text-gray-300">Knowledge sharing</span>
               </div>
             </div>
             <div className="flex flex-col sm:flex-row gap-4">
@@ -67,8 +67,8 @@ const SubtleHeroSection: React.FC = () => {
               </Link>
             </div>
           </div>
-          <div className="relative">
-            <div className="bg-gradient-to-br from-secondary-800 to-primary-900/30 rounded-lg p-8 h-auto flex items-center justify-center">
+          <div className="relative mt-8 md:mt-0">
+            <div className="bg-gradient-to-br from-secondary-800 to-primary-900/30 rounded-lg p-4 md:p-8 h-auto flex items-center justify-center">
               {/* Remove texture overlay */}
               <div className="relative z-10 text-center">
                 <Image 

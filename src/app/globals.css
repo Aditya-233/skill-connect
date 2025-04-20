@@ -59,11 +59,11 @@ body {
   }
   
   .section {
-    @apply py-12 md:py-20;
+    @apply py-8 sm:py-12 md:py-20;
   }
   
   .grid-card-container {
-    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6;
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6;
   }
   
   /* Mobile-friendly components */
@@ -132,6 +132,16 @@ body {
   
   .testimonial-card {
     @apply mb-6;
+  }
+  
+  /* Fix quiz button overlap */
+  .fixed.bottom-6.right-6 {
+    @apply bottom-4 right-4 !important;
+  }
+  
+  /* Improve text readability on small screens */
+  p {
+    @apply text-sm !important;
   }
 } 
 

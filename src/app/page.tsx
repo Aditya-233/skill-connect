@@ -6,7 +6,6 @@ import Image from 'next/image';
 import SubtleHeroSection from './components/SubtleHeroSection';
 import ImprovedHowItWorks from './components/ImprovedHowItWorks';
 import SimplifiedFooter from './components/SimplifiedFooter';
-import StickyQuizButton from './components/StickyQuizButton';
 import SkillQuiz from './components/SkillQuiz';
 
 export default function HomePage() {
@@ -210,9 +209,6 @@ export default function HomePage() {
 
       {/* Footer - using simplified footer */}
       <SimplifiedFooter />
-      
-      {/* Sticky Quiz Button */}
-      <StickyQuizButton onClick={() => setIsQuizOpen(true)} />
       
       {/* Skill Quiz Modal */}
       {isQuizOpen && <SkillQuiz onClose={() => setIsQuizOpen(false)} />}

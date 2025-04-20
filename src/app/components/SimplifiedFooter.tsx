@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import SocialLinks from './SocialLinks';
@@ -20,14 +20,20 @@ const SimplifiedFooter: React.FC = () => {
   const [openSection, setOpenSection] = useState<string | null>(null);
   const [isQuizOpen, setIsQuizOpen] = useState(false);
   const [showFloatingButton, setShowFloatingButton] = useState(false);
+  const footerRef = useRef<HTMLElement>(null);
   
   // Effect to handle scroll-based visibility of floating button
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
-      const threshold = 300; // When to show the button
+      const viewportHeight = window.innerHeight;
+      const scrollThreshold = 800; // When to show the button - increased threshold
       
-      if (scrollPosition > threshold) {
+      // Check if near footer to hide button
+      const footerTop = footerRef.current?.getBoundingClientRect().top || 0;
+      const isNearFooter = footerTop < viewportHeight - 100;
+      
+      if (scrollPosition > scrollThreshold && !isNearFooter) {
         setShowFloatingButton(true);
       } else {
         setShowFloatingButton(false);
@@ -85,7 +91,7 @@ const SimplifiedFooter: React.FC = () => {
   
   return (
     <>
-      <footer className="bg-secondary-900 border-t border-secondary-800">
+      <footer className="bg-secondary-900 border-t border-secondary-800" ref={footerRef}>
         <div className="max-w-7xl mx-auto px-4 py-12 sm:px-6 lg:px-8">
           {/* Logo and social links - always visible */}
           <div className="flex flex-col md:flex-row justify-between items-center mb-8">
@@ -101,10 +107,10 @@ const SimplifiedFooter: React.FC = () => {
               <span className="text-xl font-bold text-white">SkillConnect</span>
             </div>
             
-            <div className="flex items-center space-x-4">
+            <div className="flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-4">
               <button
                 onClick={openQuiz}
-                className="bg-primary-500 hover:bg-primary-600 text-white px-4 py-2 rounded-md text-sm transition-colors flex items-center"
+                className="bg-primary-500 hover:bg-primary-600 text-white px-4 py-2 rounded-md text-sm transition-colors flex items-center w-full sm:w-auto justify-center sm:justify-start"
               >
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5 mr-2">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9 5.25h.008v.008H12v-.008z" />
@@ -214,11 +220,11 @@ const SimplifiedFooter: React.FC = () => {
       >
         <button
           onClick={openQuiz}
-          className="bg-primary-500 hover:bg-primary-600 text-white p-3 rounded-full shadow-lg flex items-center justify-center transition-transform hover:scale-110"
+          className="bg-primary-500 hover:bg-primary-600 text-white p-3 md:px-4 md:py-3 rounded-full shadow-lg flex items-center justify-center transition-transform hover:scale-110"
           aria-label="Find your skills match"
         >
           <div className="flex items-center">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5 md:w-6 md:h-6">
               <path strokeLinecap="round" strokeLinejoin="round" d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9 5.25h.008v.008H12v-.008z" />
             </svg>
             <span className="ml-2 font-medium hidden md:inline">Take Skill Quiz</span>
